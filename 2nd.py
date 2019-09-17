@@ -1,3 +1,4 @@
+'''
 #3
 a=0
 while a<=10:
@@ -37,3 +38,19 @@ while i<5:
     sum=sum+int(list1[i])
     i=i+1
 print(sum)
+
+#6
+list2=(1,2,5,7,9)
+sum=0
+for word in list2:
+    sum=sum+word
+avg=float(sum/5)
+print(avg)
+'''
+#7
+num=int(input("Please enter a number between 1 and 100"))
+while num>100 and num<1:
+    num=int(input("Please enter a number between 1 and 100"))
+print("success")
+exit(0)
+    
