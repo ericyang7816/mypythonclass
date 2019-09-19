@@ -46,11 +46,20 @@ for word in list2:
     sum=sum+word
 avg=float(sum/5)
 print(avg)
-'''
+
 #7
+
 num=int(input("Please enter a number between 1 and 100"))
 while num>100 and num<1:
     num=int(input("Please enter a number between 1 and 100"))
 print("success")
 exit(0)
-    
+'''
+flag=True
+while flag==True:
+    num=int(input("Please enter a number between 1 and 100"))
+    if num>=1 and num<=100:
+        print("OK")
+        flag=False
+    else:
+        print("Please retry")
