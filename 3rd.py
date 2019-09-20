@@ -1,4 +1,4 @@
-'''
+
 a=int(input("Please enter"))
 b=int(input("Please enter"))
 c=int(input("Please enter"))
@@ -46,20 +46,22 @@ if b<c:
 print(a)
 print(b)
 print(c)
-'''
+
 e=int(input("Please enter"))
 f=int(input("Please enter"))
 g=int(input("Please enter"))
 h=int(input("Please enter"))
 i=int(input("Please enter"))
 choice=input("Please enter")
-x=str("X")
-if choice==1:
-    sum=e+f+g+h+i
+sum=e+f+g+h+i
+if choice=='1':
     print(sum)
-if choice==2:
+if choice=='2':
     avg=float(sum/5)
     print(avg)
-if choice==x:
+if choice=='x':
     exit(0)
 
+myfile=open("FILE.txt",'r')
+print(myfile.read())
+myfile.close()

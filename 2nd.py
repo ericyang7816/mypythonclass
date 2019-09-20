@@ -47,13 +47,6 @@ for word in list2:
 avg=float(sum/5)
 print(avg)
 
-#7
-
-num=int(input("Please enter a number between 1 and 100"))
-while num>100 and num<1:
-    num=int(input("Please enter a number between 1 and 100"))
-print("success")
-exit(0)
 '''
 flag=True
 while flag==True:
