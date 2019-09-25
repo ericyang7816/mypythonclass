@@ -11,14 +11,14 @@ fname=input("Please enter your filename\n")
 #attempt to open the file in two ways
 '''
 try:
-    fileobj=open(fname,'r')
+    fobj=open(fname,'r')
 except IOError:
     print("Error occurred")
 else:
     #display contents
-    for eachline in fileobj:
+    for eachline in fobj:
         print(eachline),
-    fileobj.close()
+    fobj.close()
 '''
 while True:
     if not os.path.exists(fname):
@@ -28,7 +28,7 @@ while True:
         break
 
 #open and print the file   
-fileobj=open(fname,'r')
-for eachline in fileobj:
-    print(eachline),
-fileobj.close()
+fobj=open(fname,'r')
+for eachline in fobj:
+    print(eachline.strip("\n"))
+fobj.close()

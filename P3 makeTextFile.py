@@ -16,7 +16,7 @@ while True:
         break
 '''
 while True:
-    fname=input("Please enter a name")
+    fname=input("Please enter a name\n")
     try:
         fobj=open(fname)
     except IOError:
@@ -30,7 +30,7 @@ print("Please enter lines.To quit by enter'.'")
 
 #loop until user stop
 while True:
-    entry=input('>')
+    entry=input('>>')
     if entry=='.':
         break
     else:
