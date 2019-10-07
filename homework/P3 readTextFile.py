@@ -5,8 +5,8 @@
 #!/usr/bin/env python
 import os
 
-
 #attempt to open the file in two ways
+'''
 while True:
     #get filename
     fname=input("Please enter your filename\n")
@@ -17,13 +17,14 @@ while True:
     else:
         break
 '''
+fname=input("Please enter your filename\n")
 while True:
     if not os.path.exists(fname):
         print("Error cannot found %s" % fname)
         fname=input("Please enter your filename\n")
     else:
         break
-'''
+
 #open and print the file   
 fobj=open(fname,'r')
 for eachline in fobj:
