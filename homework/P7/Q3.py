@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import time
+import re
 db = {}
 
 def newuser():
@@ -9,11 +10,19 @@ def newuser():
 username: """
     while True:
         name = input(prompt)
+        if not re.match("^[a-zA-Z0-9\\s]*$", name): #利用第六章的正则表达式，判断用户名是否合法
+            print('Special characters and blanks are not allowed.')
+            prompt = 'Try another:'
+            continue
+        else:
+            break
+    while True:
         if name in db.keys():
             prompt = 'not available, try another: '
             continue
         else:
             break
+        
     passwd = input('password: ')
     localTime = time.time() #获取当前格式化的时间
     info=[passwd,localTime] #创建列表
