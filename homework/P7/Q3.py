@@ -20,11 +20,15 @@ username: """
     db[name] = info #更新字典
 
 def olduser():
-    name = input('login: ')
-    pwd = input('passwd: ')
-    passwd = db.get(name)[0]
-    if passwd == pwd:
-        print('welcome back', name)
+    print('---SIGN IN---')
+    inputName = input('Username: ')
+    passwd = input('Password: ')
+    for i in range(len(db)):
+        if inputName.lower() in str(list(db.keys())[i]).lower(): #利用循环，将用户名全部小写，查找是否存在
+            name=str(list(db.keys())[i]) #读取真正用户名
+            break
+    if db.get(name)[0]==passwd:
+        print('Welcome back! '+name)
         previousTime=db.get(name)[1]
         currentTime=time.time()
         db.get(name)[1]=currentTime #读取时间，并重新存入时间
@@ -70,8 +74,8 @@ def deleteUser():
 
 
 def showUsers():
+    print("Number of users: %d" % len(db))  #返回用户数量
     for key in db:
-        print("Number of users: %d" % len(db))  #返回用户数量
         print('name = %s, password = %s' %(key,db[key][0])) #返回用户信息
 
 
