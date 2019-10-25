@@ -33,10 +33,53 @@ def olduser():
     else:
         print('login incorrect')
 
+def manageMenu():
+    prompt = """
+    (D)elete a User
+    (S)how User
+    (Q)uit
+    Enter choice: """
+
+    done = False #重用menu的部分代码
+    while not done:
+        chosen = False
+        while not chosen:
+            try:
+                choice = input(prompt).strip()[0].lower()
+            except (EOFError, KeyboardInterrupt):
+                choice = 'q'
+            print('\nYou picked: [%s]' % choice)
+            if choice not in 'dsq':
+                print('invalid option, try again')
+            else:
+                chosen = True 
+        if choice == 'q':
+            done = True
+        if choice == 'd':
+            deleteUser()
+        if choice == 's':
+            showUsers()
+
+def deleteUser():
+    name=input("Please input the name: ") 
+    if name not in db.keys(): #python3不支持has_key()
+        print("Error.Name not found.")
+    else:
+        db.pop(name)
+        print("Delete %s successful." % name)
+
+
+def showUsers():
+    for key in db:
+        print("Number of users: %d" % len(db))  #返回用户数量
+        print('name = %s, password = %s' %(key,db[key][0])) #返回用户信息
+
+
 def showmenu():
     prompt = """
     (N)ew User Login
     (E)xisting User Login
+    (M)anage
     (Q)uit
     Enter choice: """
 
@@ -49,7 +92,7 @@ def showmenu():
             except (EOFError, KeyboardInterrupt):
                 choice = 'q'
             print('\nYou picked: [%s]' % choice)
-            if choice not in 'neq':
+            if choice not in 'neqm':
                 print('invalid option, try again')
             else:
                 chosen = True 
@@ -59,7 +102,13 @@ def showmenu():
             newuser()
         if choice == 'e':
             olduser()
+        if choice == 'm':
+            if input("Please input the admin password:")=='123':
+                manageMenu()
+            else:
+                print("Wrong password. Please try again.")
 
 
 if __name__ == '__main__':
     showmenu()
+    
