@@ -10,7 +10,7 @@ def newuser():
 username: """
     while True:
         name = input(prompt)
-        if not re.match("^[a-zA-Z0-9\\s]*$", name): #利用第六章的正则表达式，判断用户名是否合法
+        if not re.match("^[a-zA-Z0-9]*$", name): #利用第六章的正则表达式，判断用户名是否合法
             print('Special characters and blanks are not allowed.')
             prompt = 'Try another:'
             continue
