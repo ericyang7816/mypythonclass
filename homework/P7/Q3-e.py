@@ -124,7 +124,7 @@ def manageMenu():
             showUsers()
 
 def deleteUser():
-    name=input("Please input the name: ") 
+    inputName=input("Please input the name: ") 
     flag=0 
     for i in range(len(db)):
             if inputName.lower() in str(list(db.keys())[i]).lower(): #利用循环，将用户名全部小写，查找是否存在
