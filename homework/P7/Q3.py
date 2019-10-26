@@ -32,19 +32,22 @@ def olduser():
     print('---SIGN IN---')
     inputName = input('Username: ')
     passwd = input('Password: ')
+    flag=0
     for i in range(len(db)):
         if inputName.lower() in str(list(db.keys())[i]).lower(): #利用循环，将用户名全部小写，查找是否存在
             name=str(list(db.keys())[i]) #读取真正用户名
+            flag=1
             break
-    if db.get(name)[0]==passwd:
-        print('Welcome back! '+name)
-        previousTime=db.get(name)[1]
-        currentTime=time.time()
-        db.get(name)[1]=currentTime #读取时间，并重新存入时间
-        if (currentTime-previousTime)<=14400: #判断时间是否在4小时（14400秒）内
-            print("You already logged in at: ",time.asctime(time.localtime(previousTime))) #利用查到的asctime()函数生成可读的时间
+    if flag==1:
+        if db.get(name)[0]==passwd:
+            print('Welcome back! '+name)
+            previousTime=db.get(name)[1]
+            currentTime=time.time()
+            db.get(name)[1]=currentTime #读取时间，并重新存入时间
+            if (currentTime-previousTime)<=14400: #判断时间是否在4小时（14400秒）内
+                print("You already logged in at: ",time.asctime(time.localtime(previousTime))) #利用查到的asctime()函数生成可读的时间
     else:
-        print('login incorrect')
+        print('Name not found.')
 
 def manageMenu():
     prompt = """

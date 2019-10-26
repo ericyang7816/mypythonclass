@@ -125,7 +125,13 @@ def manageMenu():
 
 def deleteUser():
     name=input("Please input the name: ") 
-    if name not in db.keys(): #python3不支持has_key()
+    flag=0 
+    for i in range(len(db)):
+            if inputName.lower() in str(list(db.keys())[i]).lower(): #利用循环，将用户名全部小写，查找是否存在
+                name=str(list(db.keys())[i]) #读取真正用户名
+                flag=1 #增加flag判断用户名是否存在
+                break
+    if flag==0:
         print("Error.Name not found.")
     else:
         db.pop(name)
