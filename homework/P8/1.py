@@ -1,4 +1,4 @@
-f=open('test.txt','r')  
+f=open('1.txt','r')  
 for eachline in f:  
     if eachline.startswith('#'):  
         continue  
@@ -6,5 +6,5 @@ for eachline in f:
         loc=eachline.find('#')  
         print (eachline[:loc])  
     else:  
-        print(eachline,end='')  
+        print(eachline,end='') #消除空行
 f.close()  
