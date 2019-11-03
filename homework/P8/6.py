@@ -1,12 +1,12 @@
 import os  
 pymodules={}  
-path=r'C:\Users\Yang\.vscode\extensions\ms-python.python-2019.10.44104\pythonFiles\lib\python\packaging'  
+path=r"C:\Users\Yang\.vscode\extensions\ms-python.python-2019.10.44104\pythonFiles"
 pyfiles=[f for f in os.listdir(path) if f.endswith('.py')]  
 for f in pyfiles:  
     module=f[:-3]  
     pymodules.setdefault(module,'')  
     pyfile=path+os.sep+f  
-    fobj=open(pyfile)  
+    fobj=open(pyfile,encoding='utf-8')  
     doc=False  
     for line in fobj:  
         if line.strip().startswith('"""''"""') and line.strip().endswith('"""'):  
