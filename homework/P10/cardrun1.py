@@ -5,9 +5,9 @@ def safe_float(object):
     'safe version of float()'
     try:
         retval = float(object)
-    except (TypeError, ValueError) as diag:
+    except (TypeError, ValueError) as diag: #改为python3语法
         retval = str(diag)
-    finally:
+    finally: #增加了finally
         return retval
 
 
@@ -20,7 +20,7 @@ def main():
         log.write('No transactions this month \n')
         log.close()
         return
-    finally:
+    finally: 
         transactions = ccfile.readlines()
         ccfile.close()
     total = 0.00
