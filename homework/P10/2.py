@@ -59,7 +59,7 @@ def editfile():
             extraLine = index-len(alllines)-num
             for _ in range(extraLine):
                 alllines.append('\n')
-            alllines.append(text+'\n')
+            alllines.append(text)
         else:
             try: #修改第n行文件
                 alllines[int(index)-1] = text+'\n'
