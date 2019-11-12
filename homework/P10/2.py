@@ -54,7 +54,10 @@ def editfile():
     while True:
         index = int(input('Please input the line: '))
         text = input('Please input the content: ')
-        num = alllines[len(alllines)-1].count('\n')
+        if len(alllines)==0:
+            num=1
+        else:
+            num = alllines[len(alllines)-1].count('\n')
         if index > (len(alllines)): #当最后一行末尾有换行符时，就少换一行
             extraLine = index-len(alllines)-num
             for _ in range(extraLine):
