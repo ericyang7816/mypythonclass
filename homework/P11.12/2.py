@@ -8,7 +8,7 @@ def testit(func, *nkwargs, **kwargs):
 
 
 def test():
-    funcs = (int, int, float) #python3没有long类型了
+    funcs = (int, float, float) #python3没有long类型了
     vals = (1234, 12.34, '1234', '12.34')
 
     for eachFunc in funcs:
