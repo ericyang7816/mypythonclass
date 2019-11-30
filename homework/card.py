@@ -54,8 +54,8 @@ class CreditCard():
             return None
 
     def show(self):  # 显示账户的余额和额度
-        print('当前账户余额为：%d' % self.balance)
-        print('当前可用信用额度为：%d' % self.credit)
+        print('当前账户余额为：%.2f' % self.balance)
+        print('当前可用信用额度为：%.2f' % self.credit)
 
     def draw_credit(self):
         flag = 0
@@ -72,7 +72,7 @@ class CreditCard():
             else:
                 break
         if flag == 0:
-            print('取现金额：%d 元,手续费：%d 元' % (money, 0.05*money))
+            print('取现金额：%d 元,手续费：%.2f 元' % (money, 0.05*money))
             print('是否确认取现? (Y/N)')
             choice2 = CreditCard.user_select()
             if choice2 == 1:
@@ -128,7 +128,7 @@ class CreditCard():
 
     def repayment(self):
         money_need_pay = 15000-self.credit
-        print('您的待还余额为：%d' % money_need_pay)
+        print('您的待还余额为：%.2f' % money_need_pay)
         while True:
             money = CreditCard.safe_float_num(input('请输入还款金额：'))
             if money < 0:

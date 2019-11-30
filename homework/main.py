@@ -2,7 +2,7 @@ from card import *
 from menu import *
 import datetime
 
-mycard=CreditCard(1000,15000)
+mycard=CreditCard(1000.00,15000.00)
 
 while True:
     date=datetime.datetime.now()
