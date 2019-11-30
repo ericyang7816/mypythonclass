@@ -3,3 +3,4 @@
 {"code": 3, "time": "Sat Nov 23 19:00:14 2019", "type": "draw_credit", "amount": 500, "interest": 0}
 {"code": 4, "time": "Sat Nov 23 19:00:14 2019", "type": "fee", "amount": 25.0, "interest": 0}
 {"code": 5, "time": "Sat Nov 23 19:00:18 2019", "type": "deposit", "amount": 300, "interest": 0}
+{"code": 1, "time": "Sat Nov 30 09:32:00 2019", "type": "pay", "amount": 123.88, "interest": 0}

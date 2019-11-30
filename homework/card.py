@@ -1,5 +1,8 @@
 import time
 import json
+from decimal import Decimal
+from decimal import getcontext
+getcontext().prec = 2
 
 
 class CreditCard():
@@ -61,7 +64,7 @@ class CreditCard():
         flag = 0
         while True:
             money = CreditCard.valid_money_atm()
-            if money > self.credit:
+            if Decimal(str(money)) > Decimal(str(self.credit)):
                 print('您的额度不足，是否重新输入 (Y/N)：')
                 choice1 = CreditCard.user_select()
                 if choice1 == 1:
@@ -76,7 +79,7 @@ class CreditCard():
             print('是否确认取现? (Y/N)')
             choice2 = CreditCard.user_select()
             if choice2 == 1:
-                if 0.05*money > self.balance:
+                if Decimal(str(0.05*money)) > Decimal(str(self.balance)):
                     print('手续费扣除失败，余额不足')
                 else:
                     self.credit -= money
@@ -91,7 +94,7 @@ class CreditCard():
         flag = 0
         while True:
             money = CreditCard.valid_money_atm()
-            if money > self.balance:
+            if Decimal(str(money)) > Decimal(str(self.balance)):
                 print('您的余额不足，是否重新输入(Y/N)：')
                 choice1 = CreditCard.user_select()
                 if choice1 == 1:
@@ -113,7 +116,7 @@ class CreditCard():
                 print('金额有误，请重新输入')
             else:
                 break
-        if money > self.credit:
+        if Decimal(str(money)) > Decimal(str(self.credit)):
             print('信用额度不足')
         else:
             self.credit -= money
@@ -127,7 +130,7 @@ class CreditCard():
         print('存款成功！')
 
     def repayment(self):
-        money_need_pay = 15000-self.credit
+        money_need_pay = round(15000-self.credit,2)
         print('您的待还余额为：%.2f' % money_need_pay)
         while True:
             money = CreditCard.safe_float_num(input('请输入还款金额：'))
