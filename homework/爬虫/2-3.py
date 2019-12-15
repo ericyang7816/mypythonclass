@@ -9,5 +9,4 @@ details=info.findAll('a')
 for name in details:
     for id in name.children:
         print('名称： '+id)
-    print('链接： '+name['href'])
-    print('\n')
+    print('链接： '+name['href']+'\n')

@@ -8,4 +8,3 @@ names = bsObj.find('div',{'class':'dqwz-right'})
 obj=names.findAll('a')
 for name in obj:
     print(name.get_text())
-    print('\n')
