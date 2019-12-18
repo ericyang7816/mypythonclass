@@ -9,6 +9,7 @@ f=open('title.txt','w')
 for title in titles1:
     content=title.get_text()
     f.write(content+'\n')
+f.close()
 
 html2 = urlopen("https://www.zhihu.com/special/19828946")
 soup_obj2 = BeautifulSoup(html2, "html.parser")
